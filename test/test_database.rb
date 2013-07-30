@@ -113,6 +113,12 @@ module UnQLite
       @db.store "key", "value"
       assert_equal "value", @db.fetch("key")
     end
+
+    def test_empty?
+      assert @db.empty?
+      @db.store "key", "value"
+      assert !@db.empty?
+    end
   end
 
   class TestInMemoryDatabase < Minitest::Test
